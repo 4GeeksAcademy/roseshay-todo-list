@@ -1,5 +1,5 @@
 import React from "react";
-import ToDoList from "../ToDo-List.js";
+import ToDoList from "../ToDo-list.js";
 
 //create your first component
 const Home = () => {

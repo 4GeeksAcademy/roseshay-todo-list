@@ -1,14 +1,14 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 
 const ToDoList = () => {
-    const [todoItems, setToDoItems] = useState([]);
+    const [toDoItems, setToDoItems] = useState([]);
     const [newItem, setNewItem] = useState("");
 
     const handleAddItem = () => {
         if (newItem) {
-            setToDoItems([...todoItems, newItem]);
+            setToDoItems([...toDoItems, newItem]);
             setNewItem("");
         }
     };
@@ -28,30 +28,30 @@ const ToDoList = () => {
 
     return (
         <div className="container mt-4">
-            <div className="raw justify-content-center">
+            <div className="row justify-content-center">
                 <div className="col-md-8">
                     <h2 className="text-center mb-4"></h2>
                     <div className="input-group mb-1">
-                        <Input
+                        <input
                             type="text"
-                            classname="form-control"
+                            className="form-control"
                             placeholder="Add new item"
-                            value={newitem}
-                            onchange={(e) => setNewItem(e.target.value)}
-                            onkeydown={handleKeyPress}
+                            value={newItem}
+                            onChange={(e) => setNewItem(e.target.value)}
+                            onKeyDown={handleKeyPress}
                         />
                         <div className="input-group-append">
                             <button
                                 className="btn btn-outline-secondary"
                                 type="button"
-                                onclick={handleAddItem}
+                                onClick={handleAddItem}
                             >
                                 Add
                             </button>
                         </div>
                     </div>
                     <ul className="List-group">
-                        {...toDoItems.map((item, index) => (
+                        {toDoItems.map((item, index) => (
                             <li
                                 key={index}
                                 className="list-group-item d-flex justify-content-between align-items-center"
@@ -66,9 +66,9 @@ const ToDoList = () => {
                             </li>
                         ))}
                     </ul>
-            </div>
+                </div>
+            </div >
         </div >
-    </div >
     );
 };
 export default ToDoList;
